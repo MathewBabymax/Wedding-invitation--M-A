@@ -109,6 +109,50 @@ button {
 
 /* Vertical A - rose - M monogram */
 
+/* A–Rose–M wedding monogram */
+
+.monogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #526b55;
+  line-height: 1;
+}
+
+.monogram-a,
+.monogram-m {
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: normal;
+  line-height: 0.85;
+}
+
+.monogram-a {
+  transform: translateY(18px);
+  z-index: 2;
+}
+
+.monogram-rose {
+  display: block;
+  width: clamp(100px, 15vw, 155px);
+  height: 115px;
+  object-fit: contain;
+
+  /* Flip rose horizontally */
+  transform: scaleX(-1);
+
+  /* Position rose between the letters */
+  margin: -4px 0;
+  position: relative;
+  z-index: 3;
+}
+
+.monogram-m {
+  transform: translateY(-18px);
+  z-index: 2;
+}
 
 
 .cover-caption {
