@@ -107,9 +107,7 @@ button {
   color: var(--cream);
 }
 
-/* Vertical A - rose - M monogram */
-
-/* A–Rose–M wedding monogram */
+/* Mobile-friendly A–rose–M monogram */
 
 .monogram {
   display: flex;
@@ -117,6 +115,7 @@ button {
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
   color: #526b55;
   line-height: 1;
 }
@@ -124,34 +123,57 @@ button {
 .monogram-a,
 .monogram-m {
   font-family: "Times New Roman", Georgia, serif;
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(4.5rem, 18vw, 6rem);
   font-weight: normal;
-  line-height: 0.85;
+  line-height: 0.8;
+  position: relative;
 }
 
 .monogram-a {
-  transform: translateY(18px);
+  transform: translateY(14px);
   z-index: 2;
 }
 
 .monogram-rose {
   display: block;
-  width: clamp(100px, 15vw, 155px);
-  height: 115px;
+  width: 100px;
+  height: 105px;
   object-fit: contain;
-
-  /* Flip rose horizontally */
   transform: scaleX(-1);
-
-  /* Position rose between the letters */
-  margin: -4px 0;
+  margin: -3px 0;
   position: relative;
   z-index: 3;
 }
 
 .monogram-m {
-  transform: translateY(-18px);
+  transform: translateY(-14px);
   z-index: 2;
+}
+
+/* Specifically optimize narrow phone screens */
+@media (max-width: 480px) {
+  .monogram {
+    transform: translateY(-5px);
+  }
+
+  .monogram-a,
+  .monogram-m {
+    font-size: 4.5rem;
+  }
+
+  .monogram-rose {
+    width: 90px;
+    height: 90px;
+    margin: -5px 0;
+  }
+
+  .monogram-a {
+    transform: translateY(12px);
+  }
+
+  .monogram-m {
+    transform: translateY(-12px);
+  }
 }
 
 
