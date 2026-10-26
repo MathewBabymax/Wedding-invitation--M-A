@@ -1,89 +1,123 @@
-/* ==========================================================================
-   Wedding Invitation JavaScript
-   ========================================================================== */
 
-document.addEventListener("DOMContentLoaded", function () {
-  
-  /* --------------------------------------------------------------------------
-     1. Live Countdown Timer
-     -------------------------------------------------------------------------- */
-     
-   // SET YOUR WEDDING DATE AND TIME HERE (Format: Year-Month-DayTHour:Minute:Second)
-   const weddingDate = new Date("2027-06-25T14:00:00").getTime();
+const pages = Array.from(document.querySelectorAll(".page"));
+const dots = Array.from(document.querySelectorAll(".nav-dot"));
+const counter = document.querySelector(".page-count");
+const restartButton = document.getElementById("restart");
 
-   function updateCountdown() {
-     const now = new Date().getTime();
-     const distance = weddingDate - now;
+let currentPage = 0;
+let touchStartX = 0;
+let touchStartY = 0;
 
-     if (distance < 0) {
-       // If the wedding date has passed
-       const countdownElement = document.getElementById("countdown");
-       if (countdownElement) {
-         countdownElement.innerHTML = "<p>Today is the big day!</p>";
-       }
-       return;
-     }
+function showPage(index) {
+  // Keep navigation within the four pages.
+  if (index < 0 || index >= pages.length) return;
 
-     // Time calculations for days, hours, minutes and seconds
-     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  currentPage = index;
 
-     // Update HTML elements if they exist on the page
-     if (document.getElementById("days")) document.getElementById("days").innerText = days;
-     if (document.getElementById("hours")) document.getElementById("hours").innerText = hours;
-     if (document.getElementById("minutes")) document.getElementById("minutes").innerText = minutes;
-     if (document.getElementById("seconds")) document.getElementById("seconds").innerText = seconds;
-   }
+  pages.forEach((page, i) => {
+    const isActive = i === currentPage;
 
-   // Run immediately and update every second
-   updateCountdown();
-   setInterval(updateCountdown, 1000);
+    page.classList.toggle("active", isActive);
+    page.setAttribute("aria-hidden", String(!isActive));
+    page.inert = !isActive;
+  });
 
+  dots.forEach((dot, i) => {
+    const isActive = i === currentPage;
 
-  /* --------------------------------------------------------------------------
-     2. Scroll Fade-In Animation
-     -------------------------------------------------------------------------- */
-   const observerOptions = {
-     root: null,
-     rootMargin: '0px',
-     threshold: 0.1
-   };
+    dot.classList.toggle("active", isActive);
 
-   const observer = new IntersectionObserver((entries, observer) => {
-     entries.forEach(entry => {
-       if (entry.isIntersecting) {
-         entry.target.classList.add('visible');
-         observer.unobserve(entry.target);
-       }
-     });
-   }, observerOptions);
+    if (isActive) {
+      dot.setAttribute("aria-current", "step");
+    } else {
+      dot.removeAttribute("aria-current");
+    }
+  });
 
-   // Target all cards and sections for smooth reveal
-   document.querySelectorAll('.card, section h2').forEach(el => {
-     el.style.opacity = '0';
-     el.style.transform = 'translateY(20px)';
-     el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-     observer.observe(el);
-   });
+  counter.textContent =
+    `${String(currentPage + 1).padStart(2, "0")} / ` +
+    `${String(pages.length).padStart(2, "0")}`;
+}
 
-   // Add CSS rule dynamically for the reveal effect
-   const styleSheet = document.createElement("style");
-   styleSheet.type = "text/css";
-   styleSheet.innerText = ".visible { opacity: 1 !important; transform: translateY(0) !important; }";
-   document.head.appendChild(styleSheet);
-   // Interactive Opening Overlay Trigger
-document.addEventListener("DOMContentLoaded", function () {
-  const openBtn = document.getElementById("open-card-btn");
-  const overlay = document.getElementById("envelope-overlay");
+// Next-page buttons
+document.querySelectorAll(".next").forEach(button => {
+  button.addEventListener("click", event => {
+    event.stopPropagation();
 
-  if (openBtn && overlay) {
-    openBtn.addEventListener("click", function () {
-      overlay.classList.add("opened");
-    });
+    if (currentPage < pages.length - 1) {
+      showPage(currentPage + 1);
+    }
+  });
+});
+
+// Jump directly to a page using the navigation dots.
+dots.forEach(dot => {
+  dot.addEventListener("click", event => {
+    event.stopPropagation();
+    showPage(Number(dot.dataset.go));
+  });
+});
+
+// Restart the invitation.
+restartButton.addEventListener("click", event => {
+  event.stopPropagation();
+  showPage(0);
+});
+
+// Tap/click the background of the current page to continue.
+pages.forEach(page => {
+  page.addEventListener("click", event => {
+    if (event.target.closest("button")) return;
+
+    if (currentPage < pages.length - 1) {
+      showPage(currentPage + 1);
+    }
+  });
+});
+
+// Allow left/right arrow navigation on a keyboard.
+document.addEventListener("keydown", event => {
+  if (event.key === "ArrowRight" && currentPage < pages.length - 1) {
+    showPage(currentPage + 1);
+  }
+
+  if (event.key === "ArrowLeft" && currentPage > 0) {
+    showPage(currentPage - 1);
+  }
+
+  if (event.key === "Home") {
+    showPage(0);
+  }
+
+  if (event.key === "End") {
+    showPage(pages.length - 1);
   }
 });
-   
 
-});
+// Optional swipe navigation for mobile.
+document.addEventListener("touchstart", event => {
+  const touch = event.changedTouches[0];
+
+  touchStartX = touch.screenX;
+  touchStartY = touch.screenY;
+}, { passive: true });
+
+document.addEventListener("touchend", event => {
+  const touch = event.changedTouches[0];
+  const deltaX = touch.screenX - touchStartX;
+  const deltaY = touch.screenY - touchStartY;
+
+  // Only treat clearly horizontal gestures as swipes.
+  if (Math.abs(deltaX) < 65 || Math.abs(deltaX) < Math.abs(deltaY)) {
+    return;
+  }
+
+  if (deltaX < 0 && currentPage < pages.length - 1) {
+    showPage(currentPage + 1);
+  } else if (deltaX > 0 && currentPage > 0) {
+    showPage(currentPage - 1);
+  }
+}, { passive: true });
+
+// Initialize the invitation.
+showPage(0);
