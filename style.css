@@ -253,4 +253,113 @@ footer p:last-child {
   form {
     padding: 40px 35px;
   }
+   /* ==========================================================================
+   Arch Frame & Animated Opening Card Overlay
+   ========================================================================== */
+
+/* Arch Shaped Photo Holder */
+.arch-frame {
+  position: relative;
+  width: 220px;
+  height: 310px;
+  margin: 25px auto;
+  border-radius: 110px 110px 0 0; /* Creates architectural arch curve */
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.arch-frame:hover img {
+  transform: scale(1.04);
+}
+
+.arch-gold-border {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  border-radius: 104px 104px 0 0;
+  border: 1px solid rgba(212, 175, 55, 0.65); /* Soft gold outline */
+  pointer-events: none;
+}
+
+/* Fullscreen Opening Overlay */
+.envelope-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+}
+
+.envelope-overlay.opened {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+  text-align: center;
+  max-width: 360px;
+  width: 100%;
+}
+
+.seal-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.envelope-card h2 {
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.envelope-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 25px;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.open-btn {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(92, 107, 87, 0.3);
+  transition: all 0.3s ease;
+}
+
+.open-btn:hover {
+  background-color: #485544;
+  transform: translateY(-2px);
+}
+   
 }
