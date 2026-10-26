@@ -42,7 +42,9 @@ button {
   overflow: hidden;
 }
 
-/* Full-screen pages */
+/* ==================================
+   FULL-SCREEN PAGES
+   ================================== */
 
 .page {
   position: absolute;
@@ -74,7 +76,7 @@ button {
 }
 
 /* ==================================
-   PAGE 1: SPLIT BEIGE AND GREEN COVER
+   PAGE 1: BEIGE AND GREEN COVER
    ================================== */
 
 .wedding-cover {
@@ -89,10 +91,12 @@ button {
   width: 50%;
   height: 100%;
   min-width: 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   padding: 24px 12px;
   text-align: center;
 }
@@ -107,87 +111,91 @@ button {
   color: var(--cream);
 }
 
-/* Mobile-friendly A–rose–M monogram */
+/* ==================================
+   A - ROSE - M MONOGRAM
+   ================================== */
 
 .monogram {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   position: relative;
   width: 100%;
-  color: #526b55;
+  color: var(--green);
   line-height: 1;
+  transform: translateY(-5px);
 }
 
 .monogram-a,
 .monogram-m {
   font-family: "Times New Roman", Georgia, serif;
-  font-size: clamp(4.5rem, 18vw, 6rem);
+  font-size: clamp(3.4rem, 15vw, 5rem);
   font-weight: normal;
   line-height: 0.8;
   position: relative;
 }
 
 .monogram-a {
-  transform: translateY(14px);
+  transform: translateY(10px);
   z-index: 2;
 }
 
 .monogram-rose {
   display: block;
-  width: 100px;
-  height: 105px;
+
+  width: 72px;
+  height: 72px;
+
   object-fit: contain;
+  object-position: center;
+
+  flex-shrink: 0;
   transform: scaleX(-1);
-  margin: -3px 0;
+
+  margin: -5px 0;
+
   position: relative;
   z-index: 3;
 }
 
 .monogram-m {
-  transform: translateY(-14px);
+  transform: translateY(-10px);
   z-index: 2;
 }
 
-/* Specifically optimize narrow phone screens */
-@media (max-width: 480px) {
-  .monogram {
-    transform: translateY(-5px);
-  }
-
+/* Small rose on narrow mobile screens */
+@media (max-width: 360px) {
   .monogram-a,
   .monogram-m {
-    font-size: 4.5rem;
+    font-size: 3.2rem;
   }
 
   .monogram-rose {
-    width: 90px;
-    height: 90px;
-    margin: -5px 0;
-  }
-
-  .monogram-a {
-    transform: translateY(12px);
-  }
-
-  .monogram-m {
-    transform: translateY(-12px);
+    width: 60px;
+    height: 60px;
   }
 }
 
+/* ==================================
+   COVER CAPTION
+   ================================== */
 
 .cover-caption {
-  margin-top: 32px;
+  margin-top: 23px;
   font-size: clamp(7px, 1vw, 10px);
-  letter-spacing: 2.5px;
+  letter-spacing: 1px;
   line-height: 1.8;
 }
 
-/* Names and wedding details */
+/* ==================================
+   TITLES AND WEDDING DETAILS
+   ================================== */
 
 .eyebrow {
   margin: 0 0 20px;
+
   font-family: Arial, sans-serif;
   font-size: clamp(8px, 1vw, 11px);
   font-weight: normal;
@@ -208,6 +216,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: clamp(1.6rem, 7.5vw, 2.25rem);
+  margin: 10px 0 16px;
 }
 
 .ampersand {
@@ -246,7 +256,9 @@ button {
   margin: 5px 0;
 }
 
-/* Buttons */
+/* ==================================
+   BUTTONS
+   ================================== */
 
 .next,
 #restart {
@@ -254,12 +266,16 @@ button {
   border-radius: 30px;
   background: transparent;
   color: inherit;
+
   padding: 12px 20px;
   margin-top: 24px;
+
   font-family: Arial, sans-serif;
   font-size: 9px;
   letter-spacing: 1.5px;
+
   cursor: pointer;
+
   transition:
     background 0.3s ease,
     color 0.3s ease,
@@ -274,9 +290,12 @@ button {
 }
 
 .cover-button {
-  margin-top: 28px;
+  margin-top: 20px;
+  padding: 11px 8px;
   border-color: var(--gold);
   color: var(--cream);
+  font-size: 7px;
+  letter-spacing: 0.7px;
 }
 
 /* ==================================
@@ -286,11 +305,11 @@ button {
 .story-page,
 .details-page,
 .closing-page {
-  background:
-    linear-gradient(
-      rgba(64, 86, 67, 0.93),
-      rgba(64, 86, 67, 0.96)
-    );
+  background: linear-gradient(
+    rgba(64, 86, 67, 0.93),
+    rgba(64, 86, 67, 0.96)
+  );
+
   color: var(--cream);
 }
 
@@ -322,27 +341,36 @@ button {
   margin-top: 22px;
 }
 
-/* Page count and navigation */
+/* ==================================
+   PAGE COUNTER
+   ================================== */
 
 .page-count {
   position: absolute;
   bottom: 22px;
   right: 24px;
   z-index: 5;
+
   color: var(--cream);
   font-family: Arial, sans-serif;
   font-size: 10px;
   letter-spacing: 2px;
 }
 
+/* ==================================
+   NAVIGATION DOTS
+   ================================== */
+
 .navigation-dots {
   position: absolute;
   bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
+
   display: flex;
   align-items: center;
   gap: 9px;
+
   z-index: 6;
 }
 
@@ -350,11 +378,16 @@ button {
   width: 7px;
   height: 7px;
   padding: 0;
+
   border: 1px solid var(--cream);
   border-radius: 50%;
   background: transparent;
+
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+
+  transition:
+    background 0.3s,
+    transform 0.3s;
 }
 
 .nav-dot.active {
@@ -372,24 +405,6 @@ button {
     padding: 18px 7px 55px;
   }
 
-  .monogram-a,
-  .monogram-m {
-    font-size: clamp(3.4rem, 15vw, 5rem);
-  }
-
-  .monogram-rose {
-    width: clamp(52px, 17vw, 76px);
-    height: clamp(52px, 17vw, 76px);
-  }
-
-  .monogram-a {
-    transform: translateY(10px);
-  }
-
-  .monogram-m {
-    transform: translateY(-10px);
-  }
-
   .cover-caption {
     margin-top: 23px;
     font-size: 7px;
@@ -400,11 +415,6 @@ button {
     font-size: 7px;
     letter-spacing: 1px;
     margin-bottom: 14px;
-  }
-
-  .green-side h1 {
-    font-size: clamp(1.6rem, 7.5vw, 2.25rem);
-    margin: 10px 0 16px;
   }
 
   .invitation-text {
@@ -418,13 +428,6 @@ button {
 
   .venue {
     font-size: 12px;
-  }
-
-  .cover-button {
-    padding: 11px 8px;
-    font-size: 7px;
-    letter-spacing: 0.7px;
-    margin-top: 20px;
   }
 
   .page {
@@ -451,12 +454,15 @@ button {
   }
 }
 
-/* Respect reduced-motion preferences */
+/* ==================================
+   REDUCED MOTION ACCESSIBILITY
+   ================================== */
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
