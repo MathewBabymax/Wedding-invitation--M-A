@@ -73,5 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
    styleSheet.type = "text/css";
    styleSheet.innerText = ".visible { opacity: 1 !important; transform: translateY(0) !important; }";
    document.head.appendChild(styleSheet);
+   // Interactive Opening Overlay Trigger
+document.addEventListener("DOMContentLoaded", function () {
+  const openBtn = document.getElementById("open-card-btn");
+  const overlay = document.getElementById("envelope-overlay");
+
+  if (openBtn && overlay) {
+    openBtn.addEventListener("click", function () {
+      overlay.classList.add("opened");
+    });
+  }
+});
+   
 
 });
