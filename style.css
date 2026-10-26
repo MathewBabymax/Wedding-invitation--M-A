@@ -109,43 +109,7 @@ button {
 
 /* Vertical A - rose - M monogram */
 
-.monogram {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: var(--green);
-  line-height: 1;
-}
 
-.monogram-a,
-.monogram-m {
-  font-family: "Times New Roman", Georgia, serif;
-  font-size: clamp(4rem, 10vw, 8rem);
-  font-weight: normal;
-  line-height: 0.9;
-}
-
-.monogram-a {
-  transform: translateY(14px);
-  z-index: 2;
-}
-
-.monogram-rose {
-  display: block;
-  width: clamp(62px, 10vw, 115px);
-  height: clamp(62px, 10vw, 115px);
-  object-fit: contain;
-  margin: -1px 0;
-  position: relative;
-  z-index: 3;
-}
-
-.monogram-m {
-  transform: translateY(-14px);
-  z-index: 2;
-}
 
 .cover-caption {
   margin-top: 32px;
