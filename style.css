@@ -110,6 +110,60 @@ button {
   background: var(--green);
   color: var(--cream);
 }
+
+/* A & M MONOGRAM ON THE BEIGE COVER */
+
+.beige-side {
+  position: relative;
+  overflow: hidden;
+}
+
+.monogram {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 280px;
+  transform: translate(-50%, -50%);
+  color: var(--green);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.monogram-a,
+.monogram-amp,
+.monogram-m {
+  position: absolute;
+  display: block;
+  line-height: 1;
+}
+
+.monogram-a {
+  top: 0;
+  left: 10px;
+  font-size: 120px;
+}
+
+.monogram-amp {
+  top: 105px;
+  left: 75px;
+  font-size: 54px;
+  color: #b99b63;
+}
+
+.monogram-m {
+  top: 155px;
+  left: 105px;
+  font-size: 120px;
+}
+
+/* Keep the caption at the bottom */
+.cover-caption {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
 /* ==================================
    COVER CAPTION
    ================================== */
