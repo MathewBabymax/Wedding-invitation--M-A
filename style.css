@@ -147,21 +147,6 @@ button {
   z-index: 2;
 }
 
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  .monogram-image {
-    width: 90%;
-    max-height: 65%;
-    top: 45%;
-  }
-
-  .beige-side .cover-caption {
-    bottom: 7%;
-    font-size: 9px;
-    letter-spacing: 2px;
-  }
-}
-
 /* ==================================
    COVER CAPTION
    ================================== */
