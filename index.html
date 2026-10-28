@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#526b55">
-  <title>Mathew & Anjima | Wedding Invitation</title>
+  <title>Mathew &amp; Anjima | Wedding Invitation</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -16,63 +16,77 @@
     <!-- PAGE 1: WEDDING COVER -->
     <section class="page wedding-cover active" data-page="0">
 
-      
-<div class="cover-half beige-side">
+      <!-- LEFT HALF: BEIGE MONOGRAM -->
+      <div class="cover-half beige-side">
 
-  
-<div class="cover-half beige-side">
+        <img
+          src="monogram.png"
+          alt="A and M intertwined with a pink peony"
+          class="monogram-image"
+        >
 
-  <img
-    src="monogram.png"
-    alt="A and M intertwined with a pink peony"
-    class="monogram-image"
-  >
+        <p class="cover-caption">
+          TWO HEARTS,<br>
+          ONE LOVE
+        </p>
 
-  <p class="cover-caption">TWO HEARTS, ONE LOVE</p>
+      </div>
 
-</div>
-  
-
-
+      <!-- RIGHT HALF: GREEN WEDDING DETAILS -->
       <div class="cover-half green-side">
+
         <p class="eyebrow">THE BEGINNING OF FOREVER</p>
 
         <h1>
           Mathew
-          <span class="ampersand">&</span>
+          <span class="ampersand">&amp;</span>
           Anjima
         </h1>
 
         <div class="gold-line"></div>
 
-        <p class="invitation-text">We are tying the knot</p>
+        <p class="invitation-text">
+          We are tying the knot
+        </p>
 
-        <p class="wedding-date">JANUARY 7, 2027</p>
+        <p class="wedding-date">
+          JANUARY 7, 2027
+        </p>
 
         <p class="venue">Cathedral Church</p>
 
         <button class="next cover-button">
           OPEN INVITATION ↓
         </button>
+
       </div>
     </section>
 
     <!-- PAGE 2: OUR STORY -->
     <section class="page story-page" data-page="1">
+
       <p class="eyebrow">A BEAUTIFUL BEGINNING</p>
+
       <h1>Two Souls,<br>One Heart</h1>
+
       <div class="gold-line"></div>
+
       <p class="page-description">
         Some stories are written in the stars.
         Ours is a promise of love, laughter and forever.
       </p>
+
       <button class="next">CONTINUE ↓</button>
+
     </section>
 
     <!-- PAGE 3: WEDDING DETAILS -->
     <section class="page details-page" data-page="2">
+
       <p class="eyebrow">SAVE THE DATE</p>
+
       <h1>Our Wedding Day</h1>
+
       <div class="gold-line"></div>
 
       <p class="detail-label">DATE</p>
@@ -87,33 +101,62 @@
       </p>
 
       <button class="next">CONTINUE ↓</button>
+
     </section>
 
     <!-- PAGE 4: CLOSING -->
     <section class="page closing-page" data-page="3">
+
       <p class="eyebrow">WITH LOVE IN OUR HEARTS</p>
+
       <h1>Forever<br>Begins Here</h1>
+
       <div class="gold-line"></div>
+
       <p class="page-description">
         We can't wait to celebrate this
         beautiful day with you.
       </p>
-      <h2 class="closing-names">Mathew & Anjima</h2>
+
+      <h2 class="closing-names">Mathew &amp; Anjima</h2>
+
       <button id="restart">START AGAIN ↺</button>
+
     </section>
 
-    <!-- Navigation indicator -->
-    <div class="page-count" aria-live="polite">01 / 04</div>
+    <!-- PAGE COUNTER -->
+    <div class="page-count" aria-live="polite">
+      01 / 04
+    </div>
 
+    <!-- NAVIGATION DOTS -->
     <div class="navigation-dots" aria-label="Invitation pages">
-      <button class="nav-dot active" data-go="0"
-        aria-label="Page 1"></button>
-      <button class="nav-dot" data-go="1"
-        aria-label="Page 2"></button>
-      <button class="nav-dot" data-go="2"
-        aria-label="Page 3"></button>
-      <button class="nav-dot" data-go="3"
-        aria-label="Page 4"></button>
+
+      <button
+        class="nav-dot active"
+        data-go="0"
+        aria-label="Page 1"
+        aria-current="step"
+      ></button>
+
+      <button
+        class="nav-dot"
+        data-go="1"
+        aria-label="Page 2"
+      ></button>
+
+      <button
+        class="nav-dot"
+        data-go="2"
+        aria-label="Page 3"
+      ></button>
+
+      <button
+        class="nav-dot"
+        data-go="3"
+        aria-label="Page 4"
+      ></button>
+
     </div>
 
   </main>
