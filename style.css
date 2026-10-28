@@ -80,22 +80,30 @@ button {
    PAGE 1: BEIGE AND GREEN COVER
    ================================== */
 
-.wedding-cover {
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: flex-start;
+/* FIXED FULL-SCREEN WEDDING COVER */
 
+.wedding-cover {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
-  padding: 0;
+  min-width: 0;
+  min-height: 0;
 
-  background: var(--green);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+
+  padding: 0;
   overflow: hidden;
+  background: var(--green);
 }
 
-.cover-half {
-  position: relative;
+/* Two equal vertical halves */
 
+.wedding-cover > .cover-half {
+  position: relative;
   flex: 0 0 50%;
   width: 50%;
   height: 100%;
@@ -107,60 +115,113 @@ button {
   align-items: center;
   justify-content: center;
 
-  padding: 24px 12px;
-  text-align: center;
+  padding: 20px 10px;
   overflow: hidden;
+  text-align: center;
 }
 
-.beige-side {
+.wedding-cover > .beige-side {
   background: var(--beige);
   color: var(--green);
 }
 
-.green-side {
+.wedding-cover > .green-side {
   background: var(--green);
   color: var(--cream);
 }
 
-/* ==================================
-   FLORAL A & M MONOGRAM
-   ================================== */
+/* Floral monogram on the beige half */
 
-.beige-side {
-  isolation: isolate;
-}
-
-.monogram-image {
-  display: block;
-
+.wedding-cover .monogram-image {
   position: absolute;
-  top: 46%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 82%;
+  display: block;
+  width: 86%;
   max-width: 420px;
-  max-height: 68%;
-
+  max-height: 62%;
   height: auto;
   object-fit: contain;
   object-position: center;
-
-  z-index: 1;
 }
 
-/* Caption beneath the monogram */
+/* Caption below the monogram */
 
-.beige-side .cover-caption {
+.wedding-cover .beige-side .cover-caption {
   position: absolute;
-  left: 5%;
   bottom: 9%;
-
+  left: 5%;
   width: 90%;
   margin: 0;
+  font-size: clamp(7px, 1vw, 10px);
+  line-height: 1.8;
+}
 
-  text-align: center;
-  z-index: 2;
+/* Keep names and details inside the green half */
+
+.wedding-cover .green-side > * {
+  max-width: 100%;
+}
+
+.wedding-cover .green-side h1 {
+  width: 100%;
+  font-size: clamp(20px, 5vw, 36px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  margin: 10px 0 16px;
+}
+
+.wedding-cover .green-side .cover-button {
+  max-width: 100%;
+  white-space: normal;
+}
+
+/* Mobile screens */
+
+@media (max-width: 480px) {
+  .wedding-cover > .cover-half {
+    flex-basis: 50%;
+    width: 50%;
+    padding: 14px 7px;
+  }
+
+  .wedding-cover .monogram-image {
+    width: 88%;
+    max-height: 58%;
+  }
+
+  .wedding-cover .green-side h1 {
+    font-size: clamp(19px, 6vw, 26px);
+    margin: 8px 0 12px;
+  }
+
+  .wedding-cover .green-side .eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .wedding-cover .green-side .invitation-text {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .wedding-cover .green-side .wedding-date {
+    font-size: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .wedding-cover .green-side .venue {
+    font-size: 11px;
+  }
+
+  .wedding-cover .green-side .cover-button {
+    padding: 9px 5px;
+    font-size: 7px;
+    margin-top: 12px;
+  }
 }
 
 /* ==================================
