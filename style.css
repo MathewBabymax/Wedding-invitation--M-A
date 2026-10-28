@@ -111,59 +111,57 @@ button {
   color: var(--cream);
 }
 
-/* A & M MONOGRAM ON THE BEIGE COVER */
+
+/* FLORAL A & M MONOGRAM */
 
 .beige-side {
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.monogram {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 220px;
-  height: 280px;
-  transform: translate(-50%, -50%);
-  color: var(--green);
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-.monogram-a,
-.monogram-amp,
-.monogram-m {
-  position: absolute;
+.monogram-image {
   display: block;
-  line-height: 1;
-}
-
-.monogram-a {
-  top: 0;
-  left: 10px;
-  font-size: 120px;
-}
-
-.monogram-amp {
-  top: 105px;
-  left: 75px;
-  font-size: 54px;
-  color: #b99b63;
-}
-
-.monogram-m {
-  top: 155px;
-  left: 105px;
-  font-size: 120px;
-}
-
-/* Keep the caption at the bottom */
-.cover-caption {
+  width: 82%;
+  max-width: 420px;
+  height: auto;
+  max-height: 68%;
+  object-fit: contain;
+  object-position: center;
   position: absolute;
-  bottom: 25px;
-  left: 0;
-  right: 0;
-  text-align: center;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
+/* Caption below the monogram */
+.beige-side .cover-caption {
+  position: absolute;
+  bottom: 9%;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .monogram-image {
+    width: 90%;
+    max-height: 65%;
+    top: 45%;
+  }
+
+  .beige-side .cover-caption {
+    bottom: 7%;
+    font-size: 9px;
+    letter-spacing: 2px;
+  }
+}
+
 /* ==================================
    COVER CAPTION
    ================================== */
