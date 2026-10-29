@@ -151,12 +151,12 @@ button {
 
 .wedding-cover .beige-side .cover-caption {
   position: absolute;
-  bottom: 18%;
+  bottom: 50%;
   left: 5%;
-  width: 90%;
+  width: 100%;
   margin: 0;
-  font-size: clamp(14px, 2vw, 20px);
-  line-height: 1.6;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 3;
   letter-spacing: 2px;
   text-align: center;
 }
