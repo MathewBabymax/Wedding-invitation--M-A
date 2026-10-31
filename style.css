@@ -1275,16 +1275,16 @@ button:focus-visible {
    PHONE ONLY: CAPTION POSITION AND COLOUR
    This does not change the laptop layout.
    ========================================= */
+.page.wedding-cover .beige-side .cover-caption {
+    color: #96764B !important;
+}
 
 @media screen and (max-width: 700px) {
     .page.wedding-cover > .beige-side > .cover-caption {
-        bottom: 30% !important;
+        bottom: 50% !important;
         font-size: 11px !important;
         line-height: 1.7 !important;
         z-index: 10;
     }
 }
 /* Caption colour on ALL screen sizes */
-.page.wedding-cover .beige-side .cover-caption {
-    color: #96764B !important;
-}
