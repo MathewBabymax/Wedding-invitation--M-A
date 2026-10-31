@@ -1266,12 +1266,22 @@ button:focus-visible {
         padding: 9px 12px !important;
     }
 
-    @media (max-width: 700px) {
     .page.wedding-cover .beige-side .cover-caption {
-        bottom: 18% !important;
         font-size: 11px !important;
-        color: #8A7048 !important;
     }
 }
-}
 
+/* =========================================
+   PHONE ONLY: CAPTION POSITION AND COLOUR
+   This does not change the laptop layout.
+   ========================================= */
+
+@media screen and (max-width: 700px) {
+    .page.wedding-cover > .beige-side > .cover-caption {
+        bottom: 20% !important;
+        color: #96764B !important;
+        font-size: 11px !important;
+        line-height: 1.7 !important;
+        z-index: 10;
+    }
+}
