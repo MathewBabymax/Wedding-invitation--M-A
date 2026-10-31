@@ -1010,35 +1010,71 @@ button:focus-visible {
     bottom: 3%;
   }
 }
+
 /* ==================================
-   PAGE 1 ONLY: BEIGE/GREEN SPLIT
+   PAGE 1 ONLY: CORRECT FULL-SCREEN SPLIT
    ================================== */
 
 .page.wedding-cover {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0 !important;
-  margin: 0;
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
   gap: 0;
+  padding: 0 !important;
+  margin: 0;
   overflow: hidden;
 }
 
-/* Left half: Beige */
-.page.wedding-cover > .beige-side {
+/* Each side occupies exactly half of Page 1 */
+.page.wedding-cover > .cover-half {
+  position: relative;
   flex: 0 0 50%;
   width: 50%;
   height: 100%;
-  background: #e8ddc7;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
 }
 
-/* Right half: Green */
+/* Left half: beige. The position makes the monogram and caption
+   align relative to this half instead of the whole screen. */
+.page.wedding-cover > .beige-side {
+  background: var(--beige);
+}
+
+/* Right half: green. Keep all details stacked vertically. */
 .page.wedding-cover > .green-side {
-  flex: 0 0 50%;
-  width: 50%;
-  height: 100%;
-  background: #526b55;
+  background: var(--green);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Keep the monogram centered in the beige half */
+.page.wedding-cover .monogram-image {
+  left: 50%;
+}
+
+/* Keep the caption inside the beige half */
+.page.wedding-cover .beige-side .cover-caption {
+  left: 8%;
+  width: 84%;
+}
+
+/* Page 1 only: remove any page padding on all screen sizes */
+@media (min-width: 900px) {
+  .page.wedding-cover {
+    padding: 0 !important;
+  }
+}
+
+@media (max-width: 899px) {
+  .page.wedding-cover {
+    padding: 0 !important;
+  }
 }
