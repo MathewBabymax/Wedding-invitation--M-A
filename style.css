@@ -1281,7 +1281,7 @@ button:focus-visible {
 
 @media screen and (max-width: 700px) {
     .page.wedding-cover > .beige-side > .cover-caption {
-        bottom: 50% !important;
+        bottom: 30% !important;
         font-size: 11px !important;
         line-height: 1.7 !important;
         z-index: 10;
