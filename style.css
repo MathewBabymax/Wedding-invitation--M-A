@@ -147,6 +147,11 @@ button {
   letter-spacing: 2px;
   text-align: center;
 }
+@media (max-width: 480px) {
+ .wedding-cover .beige-side .cover-caption {
+    bottom: 15%;
+  }
+  }
 /* Move first-page caption down on laptops only */
 @media (min-width: 900px) {
   .wedding-cover .beige-side .cover-caption {
