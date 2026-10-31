@@ -1266,8 +1266,12 @@ button:focus-visible {
         padding: 9px 12px !important;
     }
 
+    @media (max-width: 700px) {
     .page.wedding-cover .beige-side .cover-caption {
+        bottom: 18% !important;
         font-size: 11px !important;
+        color: #8A7048 !important;
     }
+}
 }
 
