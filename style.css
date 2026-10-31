@@ -160,7 +160,12 @@ button {
   letter-spacing: 2px;
   text-align: center;
 }
-
+/* Move first-page caption down on laptops only */
+@media (min-width: 900px) {
+  .wedding-cover .beige-side .cover-caption {
+    bottom: 3%;
+  }
+}
 /* Keep names and details inside the green half */
 
 .wedding-cover .green-side > * {
