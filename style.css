@@ -1278,10 +1278,13 @@ button:focus-visible {
 
 @media screen and (max-width: 700px) {
     .page.wedding-cover > .beige-side > .cover-caption {
-        bottom: 20% !important;
-        color: #96764B !important;
+        bottom: 30% !important;
         font-size: 11px !important;
         line-height: 1.7 !important;
         z-index: 10;
     }
+}
+/* Caption colour on ALL screen sizes */
+.page.wedding-cover .beige-side .cover-caption {
+    color: #96764B !important;
 }
